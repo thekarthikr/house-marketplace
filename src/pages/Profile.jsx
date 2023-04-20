@@ -51,9 +51,9 @@ function Profile() {
     <div className='profile'>
       <header className='profileHeader'>
         <p className='pageHeader'>My Profile </p>
-        <buttton type='button' className='logOut' onClick={onLogout}>
+        <button type='button' className='logOut' onClick={onLogout}>
           Logout
-        </buttton>
+        </button>
       </header>
 
       <main>
