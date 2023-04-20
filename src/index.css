@@ -117,20 +117,17 @@ button {
   align-items: center;
 }
 
-.loadingSpinner {
-  width: 64px;
-  height: 64px;
-  border: 8px solid;
-  border-color: #00cc66 transparent #00cc66 transparent;
-  border-radius: 50%;
-  animation: spin 1.2s linear infinite;
+.spinner {
+  width: 11.2px;
+  height: 11.2px;
+  border-radius: 11.2px;
+  box-shadow: 28px 0px 0 0 rgba(0,204,102,0.2), 22.7px 16.5px 0 0 rgba(0,204,102,0.4), 8.68px 26.6px 0 0 rgba(0,204,102,0.6), -8.68px 26.6px 0 0 rgba(0,204,102,0.8), -22.7px 16.5px 0 0 #00cc66;
+  animation: spinner 1s infinite linear;
 }
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+
+@keyframes spinner {
+  to {
+     transform: rotate(360deg);
   }
 }
 
@@ -289,7 +286,7 @@ button {
 }
 
 .registerLink {
-  margin-top: 4rem;
+  margin-top: 1rem;
   color: #00cc66;
   font-weight: 600;
   text-align: center;
@@ -818,4 +815,9 @@ button {
   margin-left: 1rem;
   font-size: 0.8rem;
   opacity: 0.75;
+}
+.toastBody {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: #10171D; /* #10171D */
+  font-size: 0.875rem !important;
 }
