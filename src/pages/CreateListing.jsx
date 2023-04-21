@@ -6,6 +6,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
@@ -96,15 +97,12 @@ function CreateListing() {
           toast.error("Please enter a correct address");
           return;
         }
-        toast.success("Listing added successfully");
       } catch (error) {
         toast.error("Please enter a correct address");
       }
     } else {
       geolocation.lat = latitude;
       geolocation.lng = longitude;
-      location = address;
-      toast.success("Listing added successfully");
     }
 
     //  Store image in firebase
@@ -156,9 +154,22 @@ function CreateListing() {
       return;
     });
 
-    console.log(imageUrls);
+    const formDataCopy = {
+      ...formData,
+      imageUrls,
+      geolocation,
+      timestamp: serverTimestamp(),
+    };
+    formDataCopy.location = address;
+    delete formDataCopy.images;
+    delete formDataCopy.address;
+    !formDataCopy.offer && delete formDataCopy.discountedPrice;
+
+    const docRef = await addDoc(collection(db, "listings"), formDataCopy);
 
     setLoading(false);
+    toast.success("Listing saved Successfully");
+    navigate(`/category/${formDataCopy.type}/${docRef.id}`);
   };
 
   const onMutate = (e) => {
