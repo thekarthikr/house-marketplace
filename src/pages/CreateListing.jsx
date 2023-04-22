@@ -14,6 +14,7 @@ import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 
 function CreateListing() {
+  // eslint-disable-next-line
   const [geolocationEnabled, setGeolocationEnabled] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -60,7 +61,7 @@ function CreateListing() {
         navigate("/sign-in");
       }
     });
-  }, []);
+  }, [auth, formData, navigate]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
