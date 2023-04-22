@@ -85,26 +85,25 @@ function CreateListing() {
     let location;
 
     if (geolocationEnabled) {
-      try {
-        const res = await fetch(`https://geocode.maps.co/search?q=${address}`);
-        const data = await res.json();
+      const res = await fetch(`https://geocode.maps.co/search?q=${address}`);
+      const data = await res.json();
+
+      if (data.length !== 0) {
         const { display_name, lat, lon } = data[0];
 
+        location = display_name;
         geolocation.lat = lat;
         geolocation.lng = lon;
-        location = data.length === 0 ? undefined : display_name;
-
-        if (location === undefined || location.includes("undefined")) {
-          setLoading(false);
-          toast.error("Please enter a correct address");
-          return;
-        }
-      } catch (error) {
+        toast.info("Please wait..");
+      } else {
+        setLoading(false);
         toast.error("Please enter a correct address");
+        return;
       }
     } else {
       geolocation.lat = latitude;
       geolocation.lng = longitude;
+      geolocation.location = address;
     }
 
     //  Store image in firebase
