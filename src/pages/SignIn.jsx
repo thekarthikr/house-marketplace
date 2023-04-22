@@ -33,7 +33,7 @@ function SignIn() {
         email,
         password
       );
-
+      toast.success("Signed In successfully");
       if (userCredential.user) {
         navigate("/");
       }
