@@ -775,7 +775,13 @@ button {
 }
 
 .flex {
-  display: flex;
+  display: block;
+}
+
+@media screen and (min-width:700px){
+  .flex{
+    display: flex;
+  }
 }
 
 .formInput,
