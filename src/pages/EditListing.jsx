@@ -81,7 +81,8 @@ function EditListing() {
     };
 
     fetchListing();
-  }, [navigate, params.listingId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   //   Sets userRef to logged in user
   useEffect(() => {
@@ -92,7 +93,8 @@ function EditListing() {
         navigate("/sign-in");
       }
     });
-  }, [auth, navigate, formData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
