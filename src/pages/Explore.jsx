@@ -5,7 +5,7 @@ import Slider from "../components/Slider";
 
 function Explore() {
   return (
-    <div className='expolore'>
+    <div className='explore'>
       <header>
         <p className='pageHeader'>Explore</p>
       </header>
