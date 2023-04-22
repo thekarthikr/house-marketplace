@@ -61,7 +61,8 @@ function CreateListing() {
         navigate("/sign-in");
       }
     });
-  }, [auth, formData, navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
