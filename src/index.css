@@ -72,17 +72,49 @@ button {
   justify-content: center;
 }
 
+.secondaryButton {
+  cursor: pointer;
+  background: #DB4437;
+  border-radius: 1rem;
+  padding: 0.85rem 2rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.25rem;
+  width: 80%;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .removeIcon {
   cursor: pointer;
   position: absolute;
-  top: -3%;
+  top: -17.4%;
   right: -2%;
+  padding:.2rem;
+  border-radius: 50%;
+  transition: all .3s ease;
 }
+
+.removeIcon:hover{
+  background-color:rgba(231, 77, 60, 0.192);
+
+}
+
 .editIcon {
   cursor: pointer;
   position: absolute;
-  top: -3.4%;
+  top: -17.4%;
   right: 20px;
+  
+  padding:.2rem;
+  transition: all .3s ease;
+}
+
+.editIcon:hover{
+  background-color: #10171d2c;
+  border-radius: 50%;
 }
 
 .pageContainer,
@@ -290,7 +322,7 @@ button {
   color: #00cc66;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 9rem;
 }
 
 @media (min-width: 1217px) {
@@ -367,9 +399,12 @@ button {
   }
 }
 
+
+
 .exploreCategories {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10rem;
 }
 .exploreCategories a {
   width: 48%;
@@ -401,7 +436,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   position: relative;
 }
 
